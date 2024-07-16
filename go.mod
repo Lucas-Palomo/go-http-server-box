@@ -1,4 +1,4 @@
-module github.com/Lucas-Palomo/go-httpserver/v1
+module github.com/Lucas-Palomo/go-http-server-box
 
 go 1.22
 
