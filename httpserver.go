@@ -1,4 +1,4 @@
-package pkg
+package go_httpserver
 
 import (
 	"crypto/tls"
