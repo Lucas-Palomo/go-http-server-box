@@ -1,4 +1,4 @@
-package httpserver
+package http_server
 
 import (
 	"crypto/tls"
@@ -21,7 +21,7 @@ type Server struct {
 	proto     proto
 }
 
-func NewServer(addr string, proto proto) *Server {
+func New(addr string, proto proto) *Server {
 	return &Server{
 		addr:  addr,
 		proto: proto,
@@ -74,7 +74,7 @@ func Launch(srv *Server, handler http.Handler) error {
 		qErr := make(chan error, 1)
 
 		go func() {
-			app := NewServer(quicSrv.Addr, HTTP2)
+			app := New(quicSrv.Addr, HTTP2)
 			app.SetTLS(quicSrv.TLSConfig)
 
 			quicHandler := http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
